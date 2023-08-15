@@ -1,0 +1,287 @@
+/************************************************************/
+                            /* DESIGN */
+/************************************************************/
+
+/******************** BODY ********************/
+
+html {
+    background: black; /* this way, when dark mode is turned on, no white loading screen */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    border: 2px solid;
+    background: black;
+}
+
+hr {
+    height: 2px;
+    border: none;
+}
+
+/******************** HIDDEN ********************/
+
+.hidden {
+    display: none;
+}
+
+/******************** ROWS AND COLS ********************/
+
+.row {
+    display: block;
+    padding: 7.5px 15px 7.5px 15px;
+}
+
+.row:first-child {
+    padding-top: 15px;
+}
+
+.row:last-child {
+    padding-bottom: 15px;
+}
+
+.row.noTopPadding {
+    padding-top: 0;
+}
+
+.row.noBottomPadding {
+    padding-bottom: 0;
+}
+
+
+.rowInner {
+    width: max-content;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px; /* between cols */
+}
+
+.rowInner.center {
+    justify-content: center;
+}
+
+.rowInner.left {
+    justify-content: left;
+}
+
+.rowInner.right {
+    justify-content: flex-end;
+}
+
+
+.col {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px; /* between subcols */
+}
+
+.col.center {
+    justify-content: center;
+}
+
+.col.left {
+    justify-content: left;
+}
+
+.col.right {
+    justify-content: flex-end;
+}
+
+.col.border {
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+
+.subCol {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/******************** WRITINGS ********************/
+
+p {
+    margin: 10px;
+    font-size: 15px;
+}
+
+label {
+    line-height: 0.8;
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#tempMsg {
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    line-height: 0.8;
+    padding: 5px;
+}
+
+/******************** BUTTONS ********************/
+
+.imgBtn {
+    cursor: pointer;
+    width: fit-content;
+    text-align: center;
+    box-sizing: border-box;
+    user-drag: none;
+    -webkit-user-drag: none;
+}
+
+.imgBtn:hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+}
+
+.imgBtn.big {
+    height: 35px;
+    width: auto;
+}
+
+.imgBtn.small {
+    height: 20px;
+    width: auto;
+}
+
+
+.textBtn {
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: 900;
+    text-transform: uppercase;
+    border: none;
+    font-size: 12px;
+}
+
+.textBtn:focus {
+    outline: none;
+}
+
+.textBtn.menu, .textBtn.action {
+    border-radius: 99999px;
+    padding: 3px 10px;
+}
+
+.textBtn.menu:hover, .textBtn.action:hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+}
+
+.textBtn.ta {
+    padding: 1px 6px 0px 6px;
+}
+
+/******************** INPUTS ********************/
+input[type="number"], select {
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 18px;
+    border: none;
+    border-bottom: 2px solid;
+    padding: 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+input[type="number"] {
+    width: 50px;
+    -moz-appearance: textfield; /* this and lines below hide the up and down arrows for different browsers */
+}
+
+select {
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]:focus, select:focus {
+    outline: none;
+}
+
+/******************** TEXTAREA ********************/
+
+textarea {
+    box-sizing: border-box;
+    width: 500px;
+    height: 250px;
+    border-radius: 10px;
+    border: 2px solid;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: Arial;
+    padding: 10px;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+/******************** SWITCH ********************/
+
+.regSwitch {
+    display: block;
+    height: 20px;
+    width: 35px;
+    position: relative;
+    cursor: pointer;
+}
+
+.regSwitch .buckle, .regSwitch .belt {
+    pointer-events: none; /* when the switch is clicked, only the outer element will be selected */
+}
+
+.regSwitch .buckle {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    box-sizing: border-box;
+    border: 2px solid;
+    border-radius: 99999px; 
+    left: 0; 
+    z-index: 999999;
+}
+
+.regSwitch .belt {
+    height: 70%; 
+    width: 100%; 
+    box-sizing: border-box; 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    border-radius: 99999px;
+    border: 2px solid;
+}
+
+.regSwitch[states^="on"] .buckle {
+    transform: translate(-100%);
+    left: 100%;
+}
+
+/******************** TABLE ********************/
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+}
+
+tr:first-child td {
+    padding-top: 0;
+}

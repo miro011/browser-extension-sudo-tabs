@@ -1,0 +1,30 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+    "name": "Sudo Tabs",
+    "manifest_version": 2,
+    "version": "1.00",
+    
+    "icons":
+        {
+            "128": "img/icon128.png" 
+        },
+    
+    "background":
+        {
+            "scripts": ["global.js", "background.js"]
+        },
+    
+    "browser_action": 
+        {
+            "default_popup": "popup.html"
+        },
+    
+    "permissions": 
+        [
+            "tabs",
+            "clipboardWrite",
+            "clipboardRead",
+            "storage"
+        ]
+}
