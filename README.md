@@ -1,6 +1,6 @@
 ## Description:
 
-Sudo Tabs is a browser extension for Firefox and Chromium-based browsers. It grants users unparalleled control over their tabs. It offers a diverse array of automation features, including tab sorting, suspension, and reloading, as well as the ability to copy URLs and open multiple links simultaneously, among others.
+Sudo Tabs is a browser extension for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/sudo-tabs) and [Chromium-based](https://chrome.google.com/webstore/detail/sudo-tabs/hdodoegfeheghhpmpgiejohcmifnlmoo) browsers. It grants users unparalleled control over their tabs. It offers a diverse array of automation features, including tab sorting, suspension, and reloading, as well as the ability to copy URLs and open multiple links simultaneously, among others.
 
 **Available Background Processes:**
 - Tab Suspender - suspend inactive tabs
