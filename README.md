@@ -1,5 +1,3 @@
-# sudo-tabs
-
 ## Description:
 
 Sudo Tabs is a browser extension for Firefox and Chromium-based browsers. It grants users unparalleled control over their tabs. It offers a diverse array of automation features, including tab sorting, suspension, and reloading, as well as the ability to copy URLs and open multiple links simultaneously, among others.
