@@ -1,0 +1,760 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="popup.js"></script>
+        <link rel="stylesheet" href="popup_base.css">
+    </head>
+
+    <body>
+        
+        <!-- █████████████████████████████████████████████████████████████ -->
+        <!-- █████████████████████████ MAIN MENU █████████████████████████ -->
+        
+        <div id="mainMenu">
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <img class="imgBtn big menu" src="img/help.png" run="ui_toggleMenus(mainMenu, mainHelpMenu)"/>
+                    </div>
+                    
+                    <div class="col">
+                        <img class="imgBtn big action" src="img/reset.png" run="ui_toggleMenus(mainMenu, resetMenu)"/>
+                    </div>
+                    
+                    <div class="col">
+                        <img src="" id="colorModeSwitch" class="imgBtn big action switch imgBtnSwitch saveOnClick getFromMem" states="dark,light" run="init_setColorModeStyle()"/>
+                    </div>
+                    
+                    <div class="col">
+                        <img class="imgBtn big menu" src="img/donate.png" name="submit" run="GLOBALS:api_openNewTab(https://www.paypal.com/donate/?hosted_button_id=PCW3DKGT7P75S, make active)"/>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <label>auto sort</label>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="subCol">
+                            <img class="imgBtn small menu" src="img/settings2.png" run="init_loadSavedElemsFromMem(autoSortSettingsMenu) ; ui_toggleMenus(mainMenu, autoSortSettingsMenu)"/>
+                        </div>
+                        
+                        <div class="subCol">
+                            <span id="asSwitch" class="switch regSwitch saveOnClick getFromMem" states="off,on" run="GLOBALS:as_init()">
+                                <span class="buckle"></span><span class="belt"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <label>tab suspender</label>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="subCol">
+                            <img class="imgBtn small menu" src="img/settings2.png" run="init_loadSavedElemsFromMem(tabSuspenderSettingsMenu) ; ui_toggleMenus(mainMenu, tabSuspenderSettingsMenu)"/>
+                        </div>
+                        
+                        <div class="subCol">
+                            <span id="tsSwitch" class="switch regSwitch saveOnClick getFromMem" states="off,on" run="GLOBALS:ts_init()">
+                                <span class="buckle"></span><span class="belt"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <label>wait to load</label>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="subCol">
+                            <img class="imgBtn small menu" src="img/settings2.png" run="init_loadSavedElemsFromMem(waitToLoadSettingsMenu) ; ui_toggleMenus(mainMenu, waitToLoadSettingsMenu)"/>
+                        </div>
+                        
+                        <div class="subCol">
+                            <span id="wtlSwitch" class="switch regSwitch saveOnClick getFromMem" states="off,on" run="GLOBALS:wtl_init()">
+                                <span class="buckle"></span><span class="belt"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <img class="imgBtn big menu" src="img/open-links.png" run="ui_toggleMenus(mainMenu, openLinksMenu)"/>
+                    </div>
+                    
+                    <div class="col">
+                        <img id="tabReloaderOptBtn" class="imgBtn big menu" src="img/tab-reloader.png" run="ui_toggleMenus(mainMenu, tabReloaderMenu) ; init_showTabReloaderStatus()"/>
+                    </div>
+                    
+                    <div class="col">
+                        <img class="imgBtn big action" src="img/close-all-but-cur.png" run="qa_closeAllButCurTab()"/>
+                    </div>
+                    
+                    <div class="col">
+                        <img class="imgBtn big action" src="img/merge-windows.png" run="qa_mergeWindows()"/>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <label>all windows</label>
+                    </div>
+                    
+                    <div class="col">
+                        <span id="allWindowsSwitch" class="switch regSwitch saveOnClick getFromMem" states="off,on">
+                            <span class="buckle"></span><span class="belt"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+                
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <img class="imgBtn big action" src="img/copy-links.png" run="qa_copyTabsLinks()"/>
+                    </div>
+
+                    <div class="col">
+                        <img class="imgBtn big action" src="img/copy-titles-plus-links.png" run="qa_copyTabsLinks(titles)"/>
+                    </div>
+                    
+                    <div class="col">
+                        <img class="imgBtn big action" src="img/close-all-wtl.png" run="qa_loadOrCloseWtlTabs(close)"/>
+                    </div>
+                    
+                    <div class="col">
+                        <img class="imgBtn big action" src="img/load-all-wtl.png" run="qa_loadOrCloseWtlTabs(load)"/>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col" >
+                        <img class="imgBtn big action" src="img/sort.png" run="qa_sortTabs()"/>
+                    </div>
+                    
+                    <div class="col">
+                        <img class="imgBtn big action" src="img/suspend-all-but-cur.png" run="qa_suspendTabs()"/>
+                    </div>
+                    
+                    <div class="col">
+                        <img class="imgBtn big action" src="img/mute-all.png" run="qa_tabsVolume(mute)"/>
+                    </div>
+                    
+                    <div class="col">
+                        <img class="imgBtn big action" src="img/unmute-all.png" run="qa_tabsVolume(unmute)"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- █████████████████████ SECONDARY MENUS ███████████████████████ -->
+        <!-- █████████████████████████████████████████████████████████████ -->
+
+        <!-- ░░░░░░░░░░░░░░░░░░░░░ TAB RELOADER MENU ░░░░░░░░░░░░░░░░░ ░░░ -->
+        
+        <div id="tabReloaderMenu" class="hidden">
+            
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <img class="imgBtn big menu" src="img/back.png" run="ui_toggleMenus(tabReloaderMenu, mainMenu)"/>
+                    </div>
+                    
+                    <div class="col">
+                        <label>Tab Reloader Options</label>
+                    </div>
+                    
+                    <div class="col">
+                        <img src="img/apply.png" class="imgBtn big action" run="validateSaveAndApplySettings(tabReloaderMenu) ; qa_triggerTrInit() ; init_showTabReloaderStatus()"/>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="row">
+                <div class="rowInner center">
+                    <div class="col">
+                        <div class="subCol">
+                            <label>Reload this tab</label>
+                        </div>
+                        
+                        <div class="subCol">
+                            <span id="reloadThisTabSwitch" class="switch regSwitch" states="off,on">
+                                <span class="buckle"></span><span class="belt"></span>
+                            </span>
+                        </div> 
+                        
+                        <div class="subCol">
+                            <label>every</label>
+                        </div>
+                        
+                        <div class="subCol">
+                            <input type="number" id="trInterval" class="getFromMem toolSetting" value="1" min="0.01" max="9999999999"/>
+                        </div>
+                        
+                        <div class="subCol">
+                            <label>minutes</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ░░░░░░░░░░░░░░░░░░░░░░ OPEN LINKS MENU ░░░░░░░░░░░░░░░░░░░░░░ -->
+
+        <div id="openLinksMenu" class="hidden">
+            
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <img class="imgBtn big menu" src="img/back.png" run="ui_toggleMenus(openLinksMenu, mainMenu)"/>
+                    </div>
+                    
+                    <div class="col">
+                        <label>Open Multiple Links</label>
+                    </div>
+                    
+                    <div class="col">
+                        <img class="imgBtn big action" src="img/open-links.png" run="qa_openLinks()"/>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="row">
+                <div class="rowInner center">
+                    <div class="col">
+                        <div class="subCol">
+                            <label>wait to load</label>
+                        </div>
+                        
+                        <div class="subCol">
+                            <span id="wtlOpenLinksSwitch" class="switch regSwitch saveOnClick getFromMem" states="off,on">
+                                <span class="buckle"></span><span class="belt"></span>
+                            </span>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row noBottomPadding">
+                <div class="rowInner">
+                    <div class="col">
+                        <textarea id="openLinksTa" class="saveOnChange getFromMem" value="" placeholder="type links here..."></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row noTopPadding">
+                <div class="rowInner center">
+                    <div class="col">
+                        <button class="textBtn ta" run="tea_copy(openLinksTa) ; ui_tempMsg(successfully copied, success)">copy</button>
+                    </div>
+                    
+                    <div class="col">
+                        <button class="textBtn ta" run="tea_paste(openLinksTa)">paste</button>
+                    </div>
+                    
+                    <div class="col">
+                        <button class="textBtn ta" run="tea_replace(openLinksTa , )">empty</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ░░░░░░░░░░░░░░░░░░░░░░ RESET MENU ░░░░░░░░░░░░░░░░░░░░░░ -->
+        
+        <div id="resetMenu" class="hidden">
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <label>Reset everything?</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="rowInner center">
+                    <div class="col">
+                        <button class="textBtn menu" run="ui_toggleMenus(resetMenu, mainMenu)">NO</button>
+                    </div>
+                    
+                    <div class="col">
+                        <button class="textBtn action" run="reset()">YES</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- ░░░░░░░░░░░░░░░░░░░░░░ MAIN HELP MENU ░░░░░░░░░░░░░░░░░░░░░░░ -->
+        
+        <div id="mainHelpMenu" class="hidden">
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <img class="imgBtn big menu" src="img/back.png" run="ui_toggleMenus(mainHelpMenu, mainMenu)"/>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="subCol">
+                            <button id="buttonHelpSubmenuTrigger" class="textBtn menu submenuTrigger active" run="ui_toggleSubmenus(mainHelpMenu, buttonHelpSubmenuTrigger)">BUTTONS</button>
+                        </div>
+
+                        <div class="subCol">
+                            <button id="toolsHelpSubmenuTrigger" class="textBtn menu submenuTrigger" run="ui_toggleSubmenus(mainHelpMenu, toolsHelpSubmenuTrigger)">TOOLS</button>
+                        </div>
+
+                        <div class="subCol">
+                            <button id="notesHelpSubmenuTrigger" class="textBtn menu submenuTrigger" run="ui_toggleSubmenus(mainHelpMenu, notesHelpSubmenuTrigger)">NOTES</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div id="buttonHelpSubmenu" class="submenu">
+                
+                <div class="row">
+                    <div class="rowInner">
+                        <div class="col">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/reset.png"/></div>
+                                            <div class="subCol"><label>Reset</label></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/apply.png"/></div>
+                                            <div class="subCol"><label>Apply Settings</label></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/dark-mode-icon.png"/></div>
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/light-mode-icon.png"/></div>
+                                            <div class="subCol"><label>Change Color Mode</label></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/donate.png"/></div>
+                                            <div class="subCol"><label>Donate</label></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/open-links.png"/></div>
+                                            <div class="subCol"><label>Open Multiple Links</label></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/tab-reloader.png"/></div>
+                                            <div class="subCol"><label>Tab Reloader</label></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/close-all-but-cur.png"/></div>
+                                            <div class="subCol"><label>Close All But Current Tab</label></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/merge-windows.png"/></div>
+                                            <div class="subCol"><label>Merge All Windows</label></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/copy-links.png"/></div>
+                                            <div class="subCol"><label>Copy Tabs' Links</label></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/copy-titles-plus-links.png"/></div>
+                                            <div class="subCol"><label>Copy Tabs' Titles + Links</label></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/close-all-wtl.png"/></div>
+                                            <div class="subCol"><label>Close wait to load tabs</label></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/load-all-wtl.png"/></div>
+                                            <div class="subCol"><label>Load wait to load tabs</label></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/sort.png"/></div>
+                                            <div class="subCol"><label>Sort tabs</label></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/suspend-all-but-cur.png"/></div>
+                                            <div class="subCol"><label>Suspend tabs</label></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/mute-all.png"/></div>
+                                            <div class="subCol"><label>Mute tabs</label></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col left">
+                                            <div class="subCol"><img class="imgBtn big preview" src="img/unmute-all.png"/></div>
+                                            <div class="subCol"><label>Unmute tabs</label></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="toolsHelpSubmenu" class="hidden submenu">
+                <div style="width: 500px; height:0px"></div>
+                <p><strong>AUTO SORT:</strong> Sort tabs automatically based on certain criteria</p>
+                <hr>
+                <p><strong>TAB SUSPENDER:</strong> Suspend inactive tabs after X minutes</p>
+                <hr>
+                <p><strong>WAIT TO LOAD:</strong> Don't load newly opened tabs until selected</p>
+                <hr>
+                <p><strong>OPEN MULTIPLE LINKS:</strong> Open multiple links in one click</p>
+                <hr>
+                <p><strong>TAB RELOADER:</strong> Reloads a given tab every X minutes<br></p>
+            </div>
+            
+            <div id="notesHelpSubmenu" class="hidden submenu">
+                <div style="width: 500px; height:0px"></div>
+                <p>The <strong>ALL WINDOWS switch</strong> in main menu dictates if the buttons underneath it affect only your current window or all windows.</p>
+                <hr>
+                <p>The <strong>WAIT TO LOAD switch</strong> in OPEN MULTIPLE LINKS overrides the main WAIT TO LOAD setting and ignores included/excluded domains.</p>
+                <hr>
+                <p>The <strong>SORT & SUSPEND TABS buttons</strong> use the settings from AUTO SORT and TAB SUSPENDER respectively.</p>
+                <hr>
+                <p>
+                    With tools that let you include / exclude, you need to provide domains. If you provide links, they will be converted to domains once you apply.<br>
+                    <strong>Example domain:</strong> “google.com”<br><br>
+                    <strong>Include:</strong> apply only to the sites you provide<br>
+                    <strong>Exclude:</strong> apply to all sites but the ones you provide<br>
+                </p>
+                <hr>
+                <p>Whenever an <strong>APPLY button</strong> is present, you must click on it for the new settings to take effect. Once applied, invalid settings will be reverted to what they were prior. If present and necessary, links will be converted and duplicates will be removed.</p>
+                <hr>
+                <p><strong>Number input fields</strong> where you need to enter the number of minutes can be decimals and can also start with 0 (ex. 0.15).</p>
+                <hr>
+                <p>When you <strong>mute a tab</strong> with this extension, you won't be able to right click unmute it from its menu. You will have to unmute it using this extension. This appears to be some sort of a bug (or a safety feature) in the Chrome browser.</p>
+            </div>
+        </div>
+        
+        <!-- ██████████████████████ TERTIARY MENUS ███████████████████████ -->
+        <!-- █████████████████████████████████████████████████████████████ -->
+        
+        <!-- ░░░░░░░░░░░░░░░░░ WAIT TO LOAD OPTIONS MENU ░░░░░░░░░░░░░░░░░ -->
+        
+        <div id="waitToLoadSettingsMenu" class="hidden">
+            
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <img src="img/back.png" class="imgBtn big menu" run="ui_toggleMenus(waitToLoadSettingsMenu, mainMenu)"/>
+                    </div>
+
+                    <div class="col">
+                        <label>Wait to load settings</label>
+                    </div>
+                    
+                    <div class="col">
+                        <img src="img/apply.png" class="imgBtn big action" run="validateSaveAndApplySettings(waitToLoadSettingsMenu) ; ui_tempMsg(settings updated, success)"/>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="row">
+                <div class="rowInner center">
+                    <div class="col">
+                        <div class="subCol">
+                            <select id="wtlInclExcl" class="getFromMem toolSetting" value="exclude">
+                                <option value="exclude">exclude</option>
+                                <option value="include">include</option>
+                            </select>
+                        </div>
+                        
+                        <div class="subCol">
+                            <label>these domains:</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row noBottomPadding">
+                <div class="rowInner center">
+                    <div class="col">
+                        <textarea id="wtlLinksTa" class="getFromMem toolSetting" value="" placeholder="type domains or links here..."></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row noTopPadding">
+                <div class="rowInner center">
+                    <div class="col">
+                        <button class="textBtn ta" run="tea_copy(wtlLinksTa) ; ui_tempMsg(successfully copied, success)">copy</button>
+                    </div>
+                    
+                    <div class="col">
+                        <button class="textBtn ta" run="tea_paste(wtlLinksTa)">paste</button>
+                    </div>
+                    
+                    <div class="col">
+                        <button class="textBtn ta" run="tea_replace(wtlLinksTa , )">empty</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- ░░░░░░░░░░░░░░░░░ AUTO SORT OPTIONS MENU ░░░░░░░░░░░░░░░░ -->
+        
+        <div id="autoSortSettingsMenu" class="hidden">
+            
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <img src="img/back.png" class="imgBtn big menu" run="ui_toggleMenus(autoSortSettingsMenu, mainMenu)"/>
+                    </div>
+                    
+                    <div class="col">
+                        <label>Auto Sort Settings</label>
+                    </div>
+                    
+                    <div class="col">
+                        <img src="img/apply.png" class="imgBtn big action" run="validateSaveAndApplySettings(autoSortSettingsMenu) ; ui_tempMsg(settings updated, success)"/>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="row">
+                <div class="rowInner center">
+                    <div class="col">
+                        <div class="subCol">
+                            <label>Exclude pinned tabs</label>
+                        </div>
+                        <div class="subCol">
+                            <span id="asExclPinned" class="switch regSwitch getFromMem toolSetting" states="on,off">
+                                <span class="buckle"></span><span class="belt"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <div class="subCol">
+                            <label>Sort tabs based on</label>
+                        </div>
+                        
+                        <div class="subCol">
+                            <select id="asSortType" class="getFromMem toolSetting" value="domainThenTitle">
+                                <option value="domainThenTitle">domain, title</option>
+                                <option value="title">title</option>
+                                <option value="url">url</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="rowInner center">
+                    <div class="col">
+                        <div class="subCol">
+                            <label>In order</label>
+                        </div>
+                        
+                        <div class="subCol">
+                            <select id="asSortOrder" class="getFromMem toolSetting" value="az">
+                                <option value="az">a-z</option>
+                                <option value="za">z-a</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ░░░░░░░░░░░░░░░░░ TAB SUSPENDER OPTIONS MENU ░░░░░░░░░░░░░░░░ -->
+        
+        <div id="tabSuspenderSettingsMenu" class="hidden">
+            
+            <div class="row">
+                <div class="rowInner">
+                    <div class="col">
+                        <img src="img/back.png" class="imgBtn big menu" run="ui_toggleMenus(tabSuspenderSettingsMenu, mainMenu)"/>
+                    </div>
+                    
+                    <div class="col">
+                        <label>Tab suspender settings</label>
+                    </div>
+                    
+                    <div class="col">
+                        <img src="img/apply.png" class="imgBtn big action" run="validateSaveAndApplySettings(tabSuspenderSettingsMenu) ; ui_tempMsg(settings updated, success)"/>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="row">
+                <div class="rowInner center">
+                    <div class="col">
+                        <div class="subCol">
+                            <label>Exclude pinned tabs</label>
+                        </div>
+                        <div class="subCol">
+                            <span id="tsExclPinned" class="switch regSwitch getFromMem toolSetting" states="off,on">
+                                <span class="buckle"></span><span class="belt"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="rowInner center">
+                    <div class="col">
+                        <div class="subCol">
+                            <label>Exclude tabs with audio</label>
+                        </div>
+                        <div class="subCol">
+                            <span id="tsExclAudible" class="switch regSwitch getFromMem toolSetting" states="on,off">
+                                <span class="buckle"></span><span class="belt"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="rowInner center">
+                    <div class="col">
+                        <div class="subCol">
+                            <label>Timeout after</label>
+                        </div>
+                        <div class="subCol">
+                            <input type="number" id="tsTimeoutNumInput" class="getFromMem toolSetting" value="30" min="0.01" max="9999999999"/>
+                        </div>
+                        <div class="subCol">
+                            <label>minutes</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="rowInner center">
+                    <div class="col">
+                        <div class="subCol">
+                            <select id="tsInclExcl" class="getFromMem toolSetting" value="exclude">
+                                <option value="exclude">exclude</option>
+                                <option value="include">include</option>
+                            </select>
+                        </div>
+                        <div class="subCol">
+                            <label>these domains:</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row noBottomPadding">
+                <div class="rowInner center">
+                    <div class="col">
+                        <textarea id="tsLinksTa" class="getFromMem toolSetting" value="" placeholder="type domains or links here..."></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row noTopPadding">
+                <div class="rowInner center">
+                    <div class="col">
+                        <button class="textBtn ta" run="tea_copy(tsLinksTa) ; ui_tempMsg(successfully copied, success)">copy</button>
+                    </div>
+                    
+                    <div class="col">
+                        <button class="textBtn ta" run="tea_paste(tsLinksTa)">paste</button>
+                    </div>
+                    
+                    <div class="col">
+                        <button class="textBtn ta" run="tea_replace(tsLinksTa , )">empty</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </body>
+</html>

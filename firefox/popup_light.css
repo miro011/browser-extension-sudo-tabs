@@ -1,0 +1,117 @@
+/******************** BODY ********************/
+
+html {
+    background: #efefef;
+}
+
+body {
+    background: #efefef;
+    color: black;
+    border-color: gray;
+}
+
+hr {
+    background-color: gray;
+}
+
+/******************** ROWS AND COLS ********************/
+
+.col.border {
+    border-color: gray;
+}
+
+/******************** WRITINGS ********************/
+
+p, label {
+    color: #000;
+}
+
+#tempMsg.success {
+    background: #2b6b21;
+    color: white;
+}
+
+#tempMsg.neutral {
+    background: #cece4d;
+}
+
+#tempMsg.error {
+    background: #982424;
+    color: white;
+}
+
+/******************** BUTTONS ********************/
+
+.imgBtn.menu {
+    filter: invert(56%) sepia(0%) saturate(206%) hue-rotate(186deg) brightness(40%) contrast(83%);
+}
+
+.imgBtn.action {
+    filter: invert(43%) sepia(36%) saturate(4441%) hue-rotate(179deg) brightness(60%) contrast(147%);
+}
+
+.imgBtn.preview {
+    filter: invert(43%) sepia(36%) saturate(4441%) hue-rotate(179deg) brightness(60%) contrast(147%);
+}
+
+
+.textBtn.menu {
+    background: #454545;
+    color: #efefef;
+}
+
+.textBtn.menu.active {
+    background: #dc3a00;
+}
+
+.textBtn.action {
+    background: #01499B;
+    color: #efefef;
+}
+
+.textBtn.ta {
+    background: #efefef;
+    color: gray;
+}
+
+.textBtn.ta:hover {
+    color: black;
+}
+
+/******************** INPUTS ********************/
+
+input[type="number"], select {
+    background: #efefef;
+    border-color: #dc3a00;
+    color: #dc3a00;
+}
+
+/******************** TEXTAREA ********************/
+
+textarea {
+    background: #ffffff;
+    border-color: gray;
+    color: black;
+}
+
+/******************** SWITCH ********************/
+
+.regSwitch[states^="off"] .buckle {
+    background: #efefef;
+    border-color: #454545;
+}
+
+.regSwitch[states^="off"] .belt {
+    border-color: #454545;
+    background: #454545;
+}
+
+.regSwitch[states^="on"] .buckle {
+    background: #efefef;
+    border-color: #dc3a00;
+}
+
+.regSwitch[states^="on"] .belt {
+    border-color: #dc3a00;
+    background: #dc3a00;
+}

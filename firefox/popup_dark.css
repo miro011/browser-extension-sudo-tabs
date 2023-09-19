@@ -1,0 +1,118 @@
+/******************** BODY ********************/
+
+html {
+    background: black;
+}
+
+body {
+    background: black;
+    color: white;
+    border-color: #464646;
+}
+
+hr {
+    background-color: #464646;
+}
+
+/******************** ROWS AND COLS ********************/
+
+.col.border {
+    border-color: #464646;
+}
+
+/******************** WRITINGS ********************/
+
+p, label {
+    color: #ededed;
+}
+
+p strong {
+    color: #FFA500;
+}
+
+#tempMsg.success {
+    background: #184111;
+}
+
+#tempMsg.neutral {
+    background: #464600;
+}
+
+#tempMsg.error {
+    background: #600f0f;
+}
+
+/******************** BUTTONS ********************/
+
+.imgBtn.menu {
+    filter: invert(99%) sepia(3%) saturate(6079%) hue-rotate(197deg) brightness(126%) contrast(86%);
+}
+
+.imgBtn.action {
+    filter: invert(78%) sepia(61%) saturate(4867%) hue-rotate(1deg) brightness(107%) contrast(103%);
+}
+
+.imgBtn.preview {
+    filter: invert(78%) sepia(61%) saturate(4867%) hue-rotate(1deg) brightness(107%) contrast(103%);
+}
+
+
+.textBtn.menu {
+    background: #d6d6d6;
+    color: black;
+}
+
+.textBtn.menu.active {
+    background: #3EA6FF;
+}
+
+.textBtn.action {
+    background: #FFA500;
+}
+
+.textBtn.ta {
+    background: black;
+    color: gray;
+}
+
+.textBtn.ta:hover {
+    color: white;
+}
+
+/******************** INPUTS ********************/
+
+input[type="number"], select {
+    background: black;
+    border-color: #3EA6FF;;
+    color: #3EA6FF;
+}
+
+/******************** TEXTAREA ********************/
+
+textarea {
+    background: #171717;
+    border-color: #393939;
+    color: #fff;
+}
+
+/******************** SWITCH ********************/
+
+.regSwitch[states^="off"] .buckle {
+    background: #ededed;
+    border-color: #ededed;
+}
+
+.regSwitch[states^="off"] .belt {
+    border-color: gray;
+    background: none;
+}
+
+.regSwitch[states^="on"] .buckle {
+    background: #3EA6FF;
+    border-color: #3EA6FF;
+}
+
+.regSwitch[states^="on"] .belt {
+    border-color: #3389d3;
+    background: none;
+}
